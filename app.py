@@ -66,5 +66,19 @@ def get_meme(id):
     
     return meme_schema.jsonify(meme)
 
+#put route 
+@app.route("/meme/<id>", methods=["PUT"])
+def update_meme(id):
+    meme = Meme.query.get(id)
+    
+    new_text = request.json["text"]
+    new_favorite = request.json["favorite"]
+    
+    meme.text = new_text
+    meme.favorite = new_favorite
+    
+    db.session.commit()
+    return meme_schema.jsonify(meme)
+
 if __name__ == "__main__":
     app.run(debug=True)
