@@ -12,6 +12,7 @@ marshmallow-sqlalchemy = "*"
 psycopg2 = "*"
 flask = "*"
 flask-marshmallow = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
